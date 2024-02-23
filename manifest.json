@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "Dynamic History",
+    "version": "1.0",
+    "description": "Extension to view browsing history dynamically",
+    "permissions": [
+      "history"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/16x16.png",
+        "48": "icons/48x48.png",
+        "128": "icons/128x128.png"
+      }
+    },
+    "icons": {
+      "16": "icons/16x16.png",
+      "48": "icons/48x48.png",
+      "128": "icons/128x128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      "content.js",
+      "App.vue",
+      "Category.vue",
+      "Subcategory.vue",
+      "Dashboard.vue"
+    ],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/16x16.png",
+        "48": "icons/48x48.png",
+        "128": "icons/128x128.png"
+      }
+    }
+  }
+  

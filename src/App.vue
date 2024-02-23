@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div v-for="(category, index) in categories" :key="index" class="category">
+        <h2>{{ category.name }}</h2>
+        <ul>
+          <li v-for="site in category.sites" :key="site.url">
+            <strong>{{ site.name }}</strong> - {{ site.url }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Main content goes here -->
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      categories: [
+        { name: 'Esporte', sites: [] },
+        { name: 'Saúde', sites: [] },
+        { name: 'Trabalho', sites: [] },
+        { name: 'Tecnologia', sites: [] },
+        { name: 'Religião', sites: [] }
+      ]
+    };
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* Adicione estilos conforme necessário */
 </style>
